@@ -1,1 +1,1 @@
-# emlakjet-patikadev-java-bootcamp-bootcamp
+# emlakjet-patikadev-java-spring-bootcamp
