@@ -18,7 +18,7 @@ public interface PostService {
 
     UpdatePostResponse updatePost(Long id, UpdatePostRequest updatePostRequest);
 
-    GenericPostResponse deletePost(Long id);
+    void deletePost(Long id);
 
     Collection<GenericPostResponse> findPostsByAuthor(String author);
 

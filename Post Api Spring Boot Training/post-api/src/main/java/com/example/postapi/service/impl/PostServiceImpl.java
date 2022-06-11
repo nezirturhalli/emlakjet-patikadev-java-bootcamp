@@ -60,11 +60,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public GenericPostResponse deletePost(Long id) {
+    public void deletePost(Long id) {
         var deletePost = postRepository.findById(id).orElseThrow(() ->
                 new NotFoundException(notFoundText));
         postRepository.delete(deletePost);
-        return modelMapper.map(deletePost, GenericPostResponse.class);
+        modelMapper.map(deletePost, GenericPostResponse.class);
 
     }
 

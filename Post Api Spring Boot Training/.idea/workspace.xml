@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d17de86-4ac5-4b5d-92bc-143a1b33d51b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-api/src/main/java/com/example/postapi/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-api/src/main/java/com/example/postapi/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post-api/src/main/java/com/example/postapi/service/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-api/src/main/java/com/example/postapi/service/impl/PostServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +29,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -51,11 +52,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/nezir/Desktop/emlakjet-patikadev-java-spring-bootcamp/Post Api Spring Boot Training",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "ed72f8488efe115833e5ac073e95bb6e"
   }
 }]]></component>
@@ -81,7 +87,7 @@
       <workItem from="1654710445465" duration="1011000" />
       <workItem from="1654967136521" duration="63000" />
       <workItem from="1654968632097" duration="348000" />
-      <workItem from="1654969002738" duration="2740000" />
+      <workItem from="1654969002738" duration="3182000" />
     </task>
     <servers />
   </component>
@@ -98,5 +104,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Post_Api_Spring_Boot_Training$PostApiApplication.ic" NAME="PostApiApplication Coverage Results" MODIFIED="1654972999744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
