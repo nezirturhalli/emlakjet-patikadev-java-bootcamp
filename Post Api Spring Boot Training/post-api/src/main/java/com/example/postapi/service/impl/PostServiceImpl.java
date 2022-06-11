@@ -23,12 +23,14 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final ModelMapper modelMapper;
 
+    String notFoundText = "Post not found!";
+
 
 
     @Override
     public GenericPostResponse findPostById(Long id) {
         return modelMapper.map(postRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Post not found!")), GenericPostResponse.class);
+                new NotFoundException(notFoundText)), GenericPostResponse.class);
     }
 
     @Override
@@ -52,7 +54,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public UpdatePostResponse updatePost(Long id, UpdatePostRequest updatePostRequest) {
         var updatePost = postRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Post not found!"));
+                new NotFoundException(notFoundText));
         modelMapper.map(updatePostRequest, updatePost);
         return modelMapper.map(postRepository.saveAndFlush(updatePost), UpdatePostResponse.class);
     }
@@ -60,7 +62,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public GenericPostResponse deletePost(Long id) {
         var deletePost = postRepository.findById(id).orElseThrow(() ->
-                new NotFoundException("Post not found!"));
+                new NotFoundException(notFoundText));
         postRepository.delete(deletePost);
         return modelMapper.map(deletePost, GenericPostResponse.class);
 
