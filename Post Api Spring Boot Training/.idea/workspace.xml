@@ -45,16 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nezir/Desktop/emlakjet-patikadev-java-spring-bootcamp/Post Api Spring Boot Training&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;ed72f8488efe115833e5ac073e95bb6e&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/nezir/Desktop/emlakjet-patikadev-java-spring-bootcamp/Post Api Spring Boot Training",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "ed72f8488efe115833e5ac073e95bb6e"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="PostApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="post-api" />
@@ -77,6 +78,7 @@
       <workItem from="1654710445465" duration="1011000" />
       <workItem from="1654967136521" duration="63000" />
       <workItem from="1654968632097" duration="348000" />
+      <workItem from="1654969002738" duration="350000" />
     </task>
     <servers />
   </component>
