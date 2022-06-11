@@ -14,4 +14,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     Collection<Post> findPostsByCategory(PostCategory category);
 
+
 }

@@ -23,6 +23,8 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final ModelMapper modelMapper;
 
+
+
     @Override
     public GenericPostResponse findPostById(Long id) {
         return modelMapper.map(postRepository.findById(id).orElseThrow(() ->
@@ -40,8 +42,8 @@ public class PostServiceImpl implements PostService {
     @Override
     public GenericPostResponse createPost(GenericPostRequest postRequest) {
         try {
-            var managedPost = postRepository.save(modelMapper.map(postRequest, Post.class));
-            return modelMapper.map(managedPost, GenericPostResponse.class);
+            var createPost = postRepository.save(modelMapper.map(postRequest, Post.class));
+            return modelMapper.map(createPost, GenericPostResponse.class);
         } catch (Exception e) {
             throw new RestException(e.getMessage());
         }
@@ -49,18 +51,18 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public UpdatePostResponse updatePost(Long id, UpdatePostRequest updatePostRequest) {
-        var post = postRepository.findById(id).orElseThrow(() ->
+        var updatePost = postRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("Post not found!"));
-        modelMapper.map(updatePostRequest, post);
-        return modelMapper.map(postRepository.saveAndFlush(post), UpdatePostResponse.class);
+        modelMapper.map(updatePostRequest, updatePost);
+        return modelMapper.map(postRepository.saveAndFlush(updatePost), UpdatePostResponse.class);
     }
 
     @Override
     public GenericPostResponse deletePost(Long id) {
-        var managedPost = postRepository.findById(id).orElseThrow(() ->
+        var deletePost = postRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("Post not found!"));
-        postRepository.delete(managedPost);
-        return modelMapper.map(managedPost, GenericPostResponse.class);
+        postRepository.delete(deletePost);
+        return modelMapper.map(deletePost, GenericPostResponse.class);
 
     }
 
