@@ -1,1 +1,3 @@
-# week4-assignment4-nezirturhalli
+- Spring Boot
+- Spring Data
+- Rabbit MQ 
