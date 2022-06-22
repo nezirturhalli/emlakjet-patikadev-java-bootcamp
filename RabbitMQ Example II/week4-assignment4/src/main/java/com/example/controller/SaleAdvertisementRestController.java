@@ -36,7 +36,7 @@ public class SaleAdvertisementRestController {
         return saleAdvertisementService.findSaleAdvertisementByWord(word);
     }
 
-    @GetMapping("/find-latest-by-userPk-and-piece")
+    @GetMapping("/find-latest-by-userPk-and-custom")
     public List<SaleAdvertisement> findLatestAdvertisementsByUserPkAndCustom(@RequestParam Long userPk, @RequestParam Integer custom) {
         return saleAdvertisementService.findLatestAdvertisementsByUserPkAndCustom(userPk, custom);
 
