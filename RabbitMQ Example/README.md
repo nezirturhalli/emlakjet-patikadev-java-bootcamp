@@ -1,4 +1,4 @@
-Rabbit MQ example II
+Rabbit MQ example 
 - Java 17
 - Spring Boot
 - Spring Data
