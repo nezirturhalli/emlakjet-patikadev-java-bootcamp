@@ -1,2 +1,6 @@
-# week-3-assignment3-nezirturhalli
-Rabbitmq Example
+Rabbit MQ example 
+- Java 17
+- Spring Boot
+- Spring Data
+- Rabbit MQ
+
