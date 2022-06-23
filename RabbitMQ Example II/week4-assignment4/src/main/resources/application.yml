@@ -40,7 +40,7 @@ saleAdvertisement-queue:
 
 
 # swagger-ui custom path
-# http://localhost:5050/swagger-ui/index.html
+# http://localhost:7050/swagger-ui/index.html
 
 springdoc:
   swagger-ui:
