@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface SaleAdvertisementService {
 
+    void createAdvertisementConsumerRequest(Integer custom);
 
     void createAdvertisement(Integer custom);
 

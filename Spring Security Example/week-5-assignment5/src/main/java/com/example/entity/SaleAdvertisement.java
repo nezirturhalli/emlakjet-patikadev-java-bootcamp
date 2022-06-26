@@ -22,7 +22,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 public class SaleAdvertisement {
     @Id
-    @Column(name = "saleAdvertisement_pk")
+    @Column(name = "saleAdvertisement_pk", unique = true)
     private String saleAdvertisementPk;
     @Column(nullable = false)
     private String title;
@@ -33,13 +33,13 @@ public class SaleAdvertisement {
     @CreatedDate
     private LocalDateTime createdAt;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_fk", insertable = false, updatable = false)
-    @ToString.Exclude
     @JsonIgnore
     private User user;
-    @Column(name = "user_pk")
+
     private String userPk;
+
 
     public SaleAdvertisement() {
         this.saleAdvertisementPk = UUID.randomUUID().toString();

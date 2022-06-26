@@ -21,7 +21,7 @@ public class SaleAdvertisementRestController {
 
     @GetMapping("/request")
     public ResponseEntity<String> createAdvertisementConsumerRequest(@RequestParam Integer custom) {
-        saleAdvertisementService.createAdvertisement(custom);
+        saleAdvertisementService.createAdvertisementConsumerRequest(custom);
         return ResponseEntity.ok("Your request added to queue");
     }
 

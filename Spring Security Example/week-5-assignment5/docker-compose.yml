@@ -15,18 +15,13 @@ services:
     restart: unless-stopped
 
   rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: 'rabbitMQII'
-    environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-      RABBITMQ_DEFAULT_VHOST: "/"
+    image: rabbitmq:3-management
     ports:
-      - "5672:5672"
-      - "15672:15672"
-    volumes:
-      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+        - '5672:5672'
+        - '15672:15672'
+    environment:
+        - RABBITMQ_DEFAULT_USER=user
+        - RABBITMQ_DEFAULT_PASS=user
     networks:
       - postgres
 networks:

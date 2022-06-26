@@ -25,8 +25,8 @@ spring:
   #rabbitmq config properties
   rabbitmq:
     host: localhost
-    username: guest
-    password: guest
+    username: user
+    password: user
     port: 5672
     template:
       exchange: direct-exchanges

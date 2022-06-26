@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.example.entity.SaleAdvertisement;
 import com.example.repository.SaleAdvertisementRepository;
+import com.example.repository.UserRepository;
 import com.example.service.SaleAdvertisementService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,22 +23,29 @@ public class SaleAdvertisementServiceImpl implements SaleAdvertisementService {
     private final RabbitTemplate rabbitTemplate;
     private final DirectExchange directExchange;
     private final SaleAdvertisementRepository saleAdvertisementRepository;
-    Random random;
+    private final UserRepository userRepository;
+    Random random = new Random();
 
+
+    @Override
+    public void createAdvertisementConsumerRequest(Integer custom) {
+        rabbitTemplate.convertAndSend(directExchange.getName(), "saleAdvertisementRouting", custom);
+
+    }
 
     @Override
     public void createAdvertisement(Integer custom) {
 
         for (int i = 0; i < custom; i++) {
             SaleAdvertisement saleAdvertisement = SaleAdvertisement.builder()
-                    .userPk(UUID.randomUUID().toString())
+                    .saleAdvertisementPk(UUID.randomUUID().toString())
+                    .userPk(userRepository.getRandomUser().getUserPk())
                     .title(generateTitle())
                     .description(generateDescription())
                     .price(random.nextDouble(3000000.00))
                     .createdAt(LocalDateTime.now())
                     .build();
-            var advToRabbit = saleAdvertisementRepository.save(saleAdvertisement);
-            rabbitTemplate.convertAndSend(directExchange.getName(), advToRabbit);
+            saleAdvertisementRepository.save(saleAdvertisement);
         }
 
     }

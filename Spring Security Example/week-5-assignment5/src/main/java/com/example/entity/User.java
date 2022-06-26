@@ -4,8 +4,10 @@ package com.example.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,7 +20,7 @@ import java.util.UUID;
 @Builder
 public class User {
     @Id
-    @Column(name = "user_pk")
+    @Column(name = "user_pk",unique = true)
     private String userPk;
     @Column(nullable = false)
     private String name;
@@ -26,10 +28,6 @@ public class User {
     private String surname;
     @Column(nullable = false)
     private String email;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    @ToString.Exclude
-    private List<SaleAdvertisement> saleAdvertisements;
 
     public User() {
         this.userPk = UUID.randomUUID().toString();

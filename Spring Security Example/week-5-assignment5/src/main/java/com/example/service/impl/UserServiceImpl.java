@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
+    public void createUserConsumerRequest(Integer custom) {
+        rabbitTemplate.convertAndSend(directExchange.getName(), "userRouting", custom);
+    }
+
+    @Override
     public void createUser(Integer custom) {
         for (int i = 0; i < custom; i++) {
             User createdUser = User.builder()
@@ -34,8 +39,7 @@ public class UserServiceImpl implements UserService {
                     .email(generateEmail())
                     .build();
             log.info("created user: " + createdUser);
-            var advToRabbit = userRepository.save(createdUser);
-            rabbitTemplate.convertAndSend(directExchange.getName(), advToRabbit);
+            userRepository.save(createdUser);
         }
 
     }

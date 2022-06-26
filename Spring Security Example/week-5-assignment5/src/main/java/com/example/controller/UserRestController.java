@@ -16,7 +16,7 @@ public class UserRestController {
 
     @GetMapping("/request")
     public ResponseEntity<String> createUserConsumerRequest(@RequestParam Integer custom) {
-        userService.createUser(custom);
+        userService.createUserConsumerRequest(custom);
         return ResponseEntity.ok("Your request added to queue");
     }
 }
