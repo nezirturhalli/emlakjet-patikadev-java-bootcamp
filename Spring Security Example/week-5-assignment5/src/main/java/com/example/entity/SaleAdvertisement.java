@@ -1,7 +1,6 @@
 package com.example.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.data.annotation.CreatedDate;
@@ -33,11 +32,9 @@ public class SaleAdvertisement {
     @CreatedDate
     private LocalDateTime createdAt;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_fk", insertable = false, updatable = false)
-    @JsonIgnore
-    private User user;
-
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_fk", insertable = false, updatable = false)
+//    private User user;
     private String userPk;
 
 

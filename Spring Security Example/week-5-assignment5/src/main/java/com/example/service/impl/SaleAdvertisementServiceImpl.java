@@ -37,7 +37,7 @@ public class SaleAdvertisementServiceImpl implements SaleAdvertisementService {
     public void createAdvertisement(Integer custom) {
 
         for (int i = 0; i < custom; i++) {
-            SaleAdvertisement saleAdvertisement = SaleAdvertisement.builder()
+            SaleAdvertisement createSaleAdvertisement = SaleAdvertisement.builder()
                     .saleAdvertisementPk(UUID.randomUUID().toString())
                     .userPk(userRepository.getRandomUser().getUserPk())
                     .title(generateTitle())
@@ -45,7 +45,8 @@ public class SaleAdvertisementServiceImpl implements SaleAdvertisementService {
                     .price(random.nextDouble(3000000.00))
                     .createdAt(LocalDateTime.now())
                     .build();
-            saleAdvertisementRepository.save(saleAdvertisement);
+            saleAdvertisementRepository.save(createSaleAdvertisement);
+            log.info("Create sale advertisement: " + createSaleAdvertisement);
         }
 
     }
@@ -69,7 +70,7 @@ public class SaleAdvertisementServiceImpl implements SaleAdvertisementService {
 
     @Override
     public List<SaleAdvertisement> findLatestAdvertisementsByUserPkAndCustom(String userPk, Integer custom) {
-        var saleAdvertisementFindByUserPkList = saleAdvertisementRepository.findByUserUserPk(userPk);
+        var saleAdvertisementFindByUserPkList = saleAdvertisementRepository.findByUserPk(userPk);
         return saleAdvertisementFindByUserPkList.stream()
                 .sorted(Comparator.comparing(SaleAdvertisement::getCreatedAt).reversed())
                 .limit(custom)

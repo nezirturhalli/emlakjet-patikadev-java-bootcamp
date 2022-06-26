@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class SaleAdvertisementConsumer {
-    SaleAdvertisementService saleAdvertisementService;
+    private final SaleAdvertisementService saleAdvertisementService;
 
     public SaleAdvertisementConsumer(SaleAdvertisementService saleAdvertisementService) {
         this.saleAdvertisementService = saleAdvertisementService;
@@ -18,7 +18,7 @@ public class SaleAdvertisementConsumer {
     private void saveSaleAdvertisement(Integer custom) throws InterruptedException {
 
         log.info("Consumer generated random sale advertisements");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         saleAdvertisementService.createAdvertisement(custom);
 
     }

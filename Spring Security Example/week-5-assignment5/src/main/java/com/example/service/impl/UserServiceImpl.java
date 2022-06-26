@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
                     .surname(generateSurname())
                     .email(generateEmail())
                     .build();
-            log.info("created user: " + createdUser);
             userRepository.save(createdUser);
+            log.info("Created user: " + createdUser);
         }
 
     }

@@ -14,5 +14,5 @@ public interface SaleAdvertisementRepository extends JpaRepository<SaleAdvertise
 
     List<SaleAdvertisement> findByDescriptionContains(String word);
 
-    List<SaleAdvertisement> findByUserUserPk(String userPk);
+    List<SaleAdvertisement> findByUserPk(String userPk);
 }

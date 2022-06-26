@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class UserConsumer {
-    UserService userService;
+    private final UserService userService;
 
     public UserConsumer(UserService userService) {
         this.userService = userService;
     }
 
     @RabbitListener(queues = "${user-queue.name}")
-    public void saveUser() throws InterruptedException {
+    private void saveUser(Integer custom) throws InterruptedException {
         log.info("Consumer generated random users");
         Thread.sleep(2000);
-        userService.createUser(50);
+        userService.createUser(custom);
     }
 }
