@@ -5,4 +5,7 @@
 - Spring Data
 - Rabbit MQ
 - Spring Security
+- PostgreSql
+- Docker 
+- Open Api
  
