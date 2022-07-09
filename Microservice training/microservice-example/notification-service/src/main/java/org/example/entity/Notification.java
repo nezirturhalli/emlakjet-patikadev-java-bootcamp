@@ -5,10 +5,7 @@ import lombok.Setter;
 import org.hibernate.Hibernate;
 import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
@@ -24,6 +21,7 @@ public class Notification {
     private String message;
     @CreatedDate
     private LocalDateTime createdAt;
+    @Enumerated(EnumType.STRING)
     private NotificationState state;
     private Long userId;
     private String advertisementId;
