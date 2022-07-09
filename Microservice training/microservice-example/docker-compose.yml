@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  postgres:
+    image: 'postgres'
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=postgres
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=user
+    networks:
+      - postgres
+networks:
+  postgres:
+    driver: bridge
+volumes:
+  postgres:
+  rabbitmq:
