@@ -15,7 +15,7 @@ public class AdvertisementController {
 
     private final AdvertisementService advertisementService;
 
-    @PostMapping
+    @PostMapping("/create-advertisement")
     public String createNewAdvertisement(@RequestBody AdvertisementDto advertisementDto) {
         advertisementService.createNewAdvertisement(advertisementDto);
         return "Your request has been sent.";

@@ -3,16 +3,11 @@ package org.example.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.request.AddUserRequest;
 import org.example.dto.request.LoginUserRequest;
-import org.example.dto.response.JwtResponse;
 import org.example.entity.User;
-import org.example.security.JwtTokenUtil;
+import org.example.service.AuthenticationService;
 import org.example.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -24,8 +19,7 @@ import java.util.List;
 @CrossOrigin
 @RequiredArgsConstructor
 public class AuthController {
-    private final AuthenticationManager authenticationManager;
-    private final JwtTokenUtil jwtTokenUtil;
+    private final AuthenticationService authenticationService;
     private final UserService userService;
 
     @PostMapping("/sign-up")
@@ -37,16 +31,9 @@ public class AuthController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginUserRequest user) throws Exception {
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new Exception("Username not found", e);
-        }
-        final UserDetails userDetails = userService.loadUserByUsername(user.getUsername());
-        final String token = jwtTokenUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new JwtResponse(token));
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginUserRequest user) {
 
+        return new ResponseEntity<>(authenticationService.signInAndReturnJWT(user), HttpStatus.OK);
     }
 
 
